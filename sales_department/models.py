@@ -1,4 +1,6 @@
 from django.db import models
+from human_res_department.models import Employee
+
 
 class Contract_clue(models.Model):
 	project_number = models.CharField('项目编号', max_length=40)
@@ -26,3 +28,7 @@ class Contract_clue(models.Model):
 	intro_situation = models.CharField('项目情况简述')
 	estabish_time = models.DateField(auto_now_add=True)
 	last_update_time = models.DateField(auto_now=True)
+	estabish_person = models.ForeignKey(
+		Employee,
+		related_name=Employee.employee_name,
+		verbose_name='线索建立人')

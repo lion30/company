@@ -25,6 +25,7 @@
 8. 项目情况简述 intro_situation
 9. 线索建立时间 estabish_time
 10. 线索最后更新时间 last_update_time
+11. 线索建立人 clue_est_person
 
 #2. 售前部
 ##3.1 售前项目表 presale_tabel
@@ -32,11 +33,12 @@
 2. 项目名称 project_name(fk)
 3. 物料编号 material_number(fk)
 4. 物料名称 material_name(fk)
-5. 物料数量 material_count
+5. 供货数量 material_count
 6. 供货厂家 supplier
 7. 标准价格 standard_price
 8. 投标价格 bid_price
-9. 销售 name
+9. 销售 employee_name
+10. 工号 employee_id
 
 #3.研发部
 
@@ -45,15 +47,13 @@
 1. 项目编号project_number (fk)
 2. 项目名称project_name (fk)
 3. 签订时间sign_time
-4. 合同额contract_amount
-5. 销售name(fk)
-6. 供货范围scope_of_supply (fk)
-7. 供货时间delivery_time
-8. 所属大区sales_area(fk)
-9. 物料编号 material_number(fk)
-10. 物料名称 material_name(fk)
-11. 物料厂家 supplier (fk)
-12. 物料数量 material_count (fk)
+4. 合同额contract_price
+5. 销售contact_person(fk)
+6. 供货时间delivery_time
+7. 物料编号 material_number(fk)
+8. 物料名称 material_name(fk)
+9. 物料厂家 supplier (fk)
+10. 物料数量 material_count
 
 #11.人力资源部
 ###11.1 业务部门表 business_department
@@ -121,6 +121,17 @@
 5. 会议参与人 meeting_partipants
 6. 会议室申请状态 meeting_application_status
 
-
-
+#6.采购部
+正式物料表
+1. 物料编号material_number
+2. 物料名称material_name
+3. 物料单位materail_unit
+3. 物料组material_group
+4. 生产厂家manufacturer
+5. 付款方式payment_method
+6. 物料备注 material_remarks
+7. 库存数量 inventory_quantity
+8. 所在仓库及位置 store_location
+9. 供应商manufacturer
+10. 供应商等级 manufacturer_level 
 

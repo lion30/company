@@ -1,10 +1,44 @@
 from django.db import models
 
-class Department(models.Model):
-    department = models.CharField('部门', max_length=40)
 
-class Position(models.Model):
-    employee_position = models.CharField('职位', max_length=50)
+department_choices = (
+    (0, '销售部'),
+    (1, '售前部'),
+    (2, '设计部'),
+    (3, '采购部'),
+    (4, '生产部'),
+    (5, '质量管理部'),
+    (6, '综合管理部'),
+    (7, '市场部'),
+    (8, '工程部'),
+    (9, '技术支持部'),
+    (10, '研发部'),
+    (11, '测试部'),
+    (12, '人力资源部'),
+    (13, '财务部'),
+)
+
+position_choices = (
+    (0, '售前工程师'),
+    (1, '设计工程师'),
+    (2, '销售经理'),
+    (3, '市场专员'),
+    (4, '库房管理员'),
+    (5, '部门经理'),
+    (6, '部门副经理'),
+    (7, '大区经理'),
+    (8, '省区经理'),
+    (9, '生产副总经理'),
+    (10, '销售副总经理'),
+    (11, '市场副总经理'),
+    (12, '生产总经理'),
+    (13, '销售总经理'),
+    (14, '市场总经理'),
+    (15, '综合管理部副经理'),
+    (16, '综合管理部经理'),
+    (17, '总经理'),
+    (18, '总经理助理'),
+)
 
 
 class Employee(models.Model):
@@ -12,6 +46,6 @@ class Employee(models.Model):
     employee_name = models.CharField('员工姓名',max_length=40)
     employee_age = models.IntegerField('员工年龄')
     enter_company_time = models.DateField('入职时间',auto_now_add=True)
-    employee_department = models.ForeignKey(Department, on_delete= models.CASCADE)
+    employee_department = models.SmallIntegerField('所属部门', choices=department_choices)
     staff_seniorty = models.IntegerField('工龄')
-    employee_position_fk = models.ForeignKey(Position, on_delete=models.CASCADE)
+    employee_position = models.SmallIntegerField('所属职位',choices=position_choices)
