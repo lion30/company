@@ -22,10 +22,9 @@
 5. 项目所处阶段 at_stage
 6. 下一步计划 next_plan
 7. 项目预估合同额 estimate_contract
-8. 项目情况简述 introduction_situation
+8. 项目情况简述 intro_situation
 9. 线索建立时间 estabish_time
 10. 线索最后更新时间 last_update_time
-##1.2 项目排产表
 
 #2. 售前部
 ##3.1 售前项目表 presale_tabel
@@ -74,11 +73,11 @@
 ###11.2 人员表 staff_table
 1. 工号 job_number
 2. 姓名 employee_name
-3. 年龄 staff_age
+3. 出生年月 birthday
 4. 进入公司时间enter_company_time
 5. 工龄 staff_seniority
 6. 所属部门 department(fk)
-7. 职位 staff_position
+7. 职位 staff_position(fk)
 
 ###6.职位表 position_table
 1. 售前工程师 presale_engineer
