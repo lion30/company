@@ -39,6 +39,7 @@
 8. 投标价格 bid_price
 9. 销售 employee_name
 10. 工号 employee_id
+11. 采购价格purchase_name 
 
 #3.研发部
 
@@ -143,4 +144,5 @@
 7. 物料备注material_remarks
 8. 优惠信息 discount_info
 9. 物料单位material_unit
-
+10. 供货周期supply_cycle
+11. 物料采购价purchase_price
