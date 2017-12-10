@@ -122,16 +122,25 @@
 6. 会议室申请状态 meeting_application_status
 
 #6.采购部
-正式物料表
-1. 物料编号material_number
-2. 物料名称material_name
-3. 物料单位materail_unit
-3. 物料组material_group
-4. 生产厂家manufacturer
-5. 付款方式payment_method
-6. 物料备注 material_remarks
+设计生产物料表 desi_prod_table
+1. 物料编号material_number(fk)
+2. 物料名称material_name(fk)
+3. 物料单位materail_unit(fk)
+4. 物料组material_group(fk)
+5. 生产厂家manufacturer(fk)
+6. 物料备注 material_remarks(fk)
 7. 库存数量 inventory_quantity
 8. 所在仓库及位置 store_location
-9. 供应商manufacturer
-10. 供应商等级 manufacturer_level 
+
+
+供应商物料表 supplier_table
+1. 供应商manufacturer
+2. 供应商等级 manufacturer_level 
+3. 物料编号material_number
+4. 物料名称material_name
+5. 物料组material_group
+6. 付款方式payment_method
+7. 物料备注material_remarks
+8. 优惠信息 discount_info
+9. 物料单位material_unit
 
