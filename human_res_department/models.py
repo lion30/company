@@ -42,10 +42,10 @@ position_choices = (
 
 
 class Employee(models.Model):
-    employee_id = models.IntegerField('员工编号')
-    employee_name = models.CharField('员工姓名',max_length=40)
+    employee_id = models.IntegerField('员工编号',unique=True)
+    employee_name = models.CharField('员工姓名',max_length=40,unique=True)
     employee_age = models.IntegerField('员工年龄')
     enter_company_time = models.DateField('入职时间',auto_now_add=True)
-    employee_department = models.SmallIntegerField('所属部门', choices=department_choices)
+    employee_department = models.SmallIntegerField('所属部门', choices=department_choices,unique=True)
     staff_seniorty = models.IntegerField('工龄')
-    employee_position = models.SmallIntegerField('所属职位',choices=position_choices)
+    employee_position = models.SmallIntegerField('所属职位', choices=position_choices)

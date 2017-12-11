@@ -3,8 +3,8 @@ from human_res_department.models import Employee
 
 
 class Contractclue(models.Model):
-    project_number = models.CharField('项目编号', max_length=40)
-    project_name = models.CharField('项目名称', max_length=200)
+    project_number = models.CharField('项目编号', max_length=40, unique=True)
+    project_name = models.CharField('项目名称', max_length=200, unique=True)
     clue_source = models.CharField('项目来源', max_length=200)
     belong_industry = models.SmallIntegerField('所属行业',choices=(
 		(0, '火电'),
@@ -29,6 +29,6 @@ class Contractclue(models.Model):
     estabish_time = models.DateField(auto_now_add=True)
     last_update_time = models.DateField(auto_now=True)
     estabish_person = models.ForeignKey(
-		'Employee',
-		related_name='employee_name',
+		Employee,
+		to_field='employee_name',
 		verbose_name='线索建立人')
