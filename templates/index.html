@@ -4,57 +4,54 @@
     <meta charset="UTF-8">
     <title>公司首页</title>
     <link rel="stylesheet" href="/static/bootstrap.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 {% extends 'base.html' %}
 {% block content %}
 <div class="container">
     <div class="row">
-    <div class="col-xs-12 col-md-6">
-        <ul class="nav nav-pills">
-            <li role="presentation" class="active"><a href="#">首页</a></li>
-            <li role="presentation"><a href="#">公司要闻</a></li>
-            <li role="presentation"><a href="#">部门网站</a></li>
-            <li role="presentation" class="dropdown">
-                <a class="dropdown-toggle"
-                   data-toggle="dropdown"
-                   href="#" role="button"
-                   aria-haspopup="true" aria-expanded="false">
-                    部门网站 <span class="caret"></span>
-                </a>
+        <div class="col-xs-12 col-md-10">
+            <ul class="nav nav-pills">
+                <li role="presentation" class="active"><a href="#">首页</a></li>
+                <li role="presentation" ><a href="#">公司要闻</a></li>
+                <li role="presentation" ><a href="#">公司通讯簿</a></li>
+                <li role="presentation" ><a href="#">公司组织架构</a></li>
+                <li role="presentation" class="dropdown">
+                    <a class="dropdown-toggle"
+                       data-toggle="dropdown"
+                       href="#"
+                       role="button"
+                       aria-haspopup="true"
+                       aria-expanded="false">
+                        部门网页 <span class="caret"></span>
+                    </a>
                     <ul class="dropdown-menu">
+                        <li><a href="#">销售部</a></li>
+                        <li><a href="#">售前部</a></li>
+                        <li><a href="#">设计部</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="input-group">
+                <input type="text" class="form-control" aria-label="...">
+                <div class="input-group-btn">
+                    <button type="button"
+                            class="btn btn-default dropdown-toggle"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false">Action <span class="caret"></span></button>
+                    <ul class="dropdown-menu dropdown-menu-right">
                         <li><a href="#">Action</a></li>
                         <li><a href="#">Another action</a></li>
                         <li><a href="#">Something else here</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="#">Separated link</a></li>
                     </ul>
-
-            </li>
-        </ul>
-    </div>
-    <div class="col-xs-12 col-md-4">
-        <div class="input-group">
-            <div class="input-group-btn">
-                <button type="button" class="btn btn-default">Action</button>
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="caret"></span>
-                    <span class="sr-only">Toggle Dropdown</span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                </ul>
-            </div>
-            <input type="text" class="form-control" aria-label="Text input with segmented button dropdown">
+                </div><!-- /btn-group -->
+            </div><!-- /input-group -->
         </div>
-    </div>
-    <div class="col-xs-12 col-md-2">
-        <div class="well">
+        <div class="col-xs-12 col-md-2">
+            <div class="well">
             {% if user.is_authenticated %}
                 <p>{{ user.username }},欢迎来到论坛.</p>
                 <a href="/accounts/logout">登出</a>&nbsp;<a href="/accounts/password_change/">修改密码</a>
@@ -71,103 +68,65 @@
             {% else %}
                 <p>匿名用户，请<a href="/accounts/login">登陆</a></p>
             {% endif %}
+            </div>
         </div>
     </div>
-</div>
-<div class="row">
-<div class="col-xs-12 col-md-2">
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Username</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
-        </tr>
-      </tbody>
-    </table>
 
-</div>
+    <div class="row">
+    <div class="col-xs-12 col-md-2">
+        <table class="table table-bordered">
+            <span>快捷入口</span>
+        <tbody>
+        <tr>
+            <td>合同入库</td>
+        </tr>
+        <tr>
+          <td>装置设计进度</td>
+        </tr>
+        <tr>
+          <td>装置厂内设计进度</td>
+        </tr>
+        </tbody>
+        </table>
+    </div>
 <div class="col-xs-12 col-md-8">
 <table class="table table-hover">
-      <thead>
+    <span>公司要闻</span>
+    <tbody>
         <tr>
-          <th>#</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Username</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
+          <td>公司于本月15日前率先完成半年目标</td>
+          <td>6/20</td>
         </tr>
         <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
+          <td>工程见闻：行走在新疆，感受不一样的风情</td>
+          <td>6/21</td>
         </tr>
         <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
+          <td>总经理李二蛋与中建八十局领导开会讨论公司三年战略</td>
+          <td>6/24</td>
         </tr>
       </tbody>
     </table>
 </div>
 <div class="col-xs-12 col-md-2">
 <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Username</th>
-        </tr>
-      </thead>
+    <span> 会议室使用情况 </span>
       <tbody>
         <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
+          <td>春雨</td>
+          <td>10：00-11：00</td>
         </tr>
         <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
+          <td>夏阳</td>
+          <td>9：30-9：50</td>>
         </tr>
         <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
+          <td>秋蝉</td>
+          <td>10：30-11：30</td>
+        </tr>
+        <tr>
+          <td>冬雪</td>
+          <td>11：30-14：30</td>
         </tr>
       </tbody>
     </table>
