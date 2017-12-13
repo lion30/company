@@ -25,10 +25,17 @@ class Contractclue(models.Model):
 		(8,'暂停阶段')))
     next_plan = models.CharField('下一步工作',max_length=400)
     estimate_constract = models.IntegerField('项目预估合同额')
-    intro_situation = models.CharField('项目情况简述',max_length=400)
+    intro_situation = models.CharField('项目情况简述', max_length=400)
     estabish_time = models.DateField(auto_now_add=True)
     last_update_time = models.DateField(auto_now=True)
     estabish_person = models.ForeignKey(
 		Employee,
 		to_field='employee_name',
 		verbose_name='线索建立人')
+
+    def __str__(self):
+        return self.project_name
+
+    class Meta:
+        verbose_name = "销售部"
+        verbose_name_plural = "销售部"

@@ -44,7 +44,7 @@ class Employee(models.Model):
     employee_id = models.IntegerField('员工编号',unique=True)
     employee_name = models.CharField('员工姓名',max_length=40,unique=True)
     employee_age = models.IntegerField('员工年龄')
-    enter_company_time = models.DateField('入职时间',auto_now_add=True)
+    enter_company_time = models.DateField('入职时间')
     employee_department = models.SmallIntegerField('所属部门', choices=department_choices)
     staff_seniorty = models.IntegerField('工龄')
     employee_position = models.SmallIntegerField('所属职位', choices=position_choices)
@@ -54,5 +54,5 @@ class Employee(models.Model):
 
     class Meta:
         verbose_name = '人力资源部'
-        verbose_name_pulral = '人力资源部'
+        verbose_name_plural = '人力资源部'
 

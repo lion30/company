@@ -55,3 +55,10 @@ class Presale(models.Model):
         verbose_name='采购价格',
         related_name='purchase_price_pre_sale'
     )
+
+    def __str__(self):
+        return self.project_name
+
+    class Meta:
+        verbose_name = "售前支持部"
+        verbose_name_plural = "售前支持部"
