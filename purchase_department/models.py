@@ -52,6 +52,13 @@ class Supplier(models.Model):
     supply_cycle = models.CharField('供货周期', max_length=100)
     purchase_price = models.IntegerField('采购价格')
 
+    def __str__(self):
+        return self.manufacturer
+
+    class Meta:
+        verbose_name = "供应商表"
+        verbose_name_plural = "供应商表"
+
 
 class Store(models.Model):
     material_number = models.OneToOneField(
@@ -91,3 +98,10 @@ class Store(models.Model):
     material_remarks = models.CharField('物料备注', max_length=100)
     inventory_quantity = models.PositiveIntegerField('库存数量')
     store_location = models.CharField('物料所在位置', max_length=100)
+
+    def __str__(self):
+        return self.store_location
+
+    class Meta:
+        verbose_name = '库存表'
+        verbose_name_plural = '库存表'
