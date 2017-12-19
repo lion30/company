@@ -48,13 +48,12 @@
 1. 项目编号project_number (fk)
 2. 项目名称project_name (fk)
 3. 签订时间sign_time
-4. 合同额contract_price
-5. 销售contact_person(fk)
-6. 供货时间delivery_time
-7. 物料编号 material_number(fk)
-8. 物料名称 material_name(fk)
-9. 物料厂家 supplier (fk)
-10. 物料数量 material_count
+4. 销售contact_person(fk)
+5. 供货时间delivery_time
+6. 物料编号 material_number(fk)
+7. 物料名称 material_name(fk)
+8. 物料厂家 supplier (fk)
+9. 物料数量 material_count
 
 #11.人力资源部
 ###11.1 业务部门表 business_department
@@ -111,18 +110,19 @@
 3. 所属部门 buziness_department
 4. 点击量 clicks_count
 5. 文章内容 article_content
-6. 创建时间 article_estabish_time
+6. 创建时间 article_establish_time
 7. 文章状态 article_status
 
 ##6.2 会议室 meeting_room_table
-1. 会议室申请人 employee_name(fk)
-2. 会议开始时间 meeting_start_time
-3. 会议结束时间 meeting_end_time
-4. 会议内容 meeting_content
-5. 会议参与人 meeting_partipants
-6. 会议室申请状态 meeting_application_status
+1. 会议室申请人 conference_applicant(fk)
+2. 会议开始时间 conference_start_time
+3. 会议结束时间 conference_end_time
+4. 会议内容 conference_theme
+5. 会议参与人 conference_participant
+6. 会议室申请状态 room_applicant_status
+7. 会议室状态 room_status
 
-#6.采购部
+#6.采购部 purchase
 设计生产物料表 desi_prod_table
 1. 物料编号material_number(fk)
 2. 物料名称material_name(fk)
@@ -131,7 +131,8 @@
 5. 生产厂家manufacturer(fk)
 6. 物料备注 material_remarks(fk)
 7. 库存数量 inventory_quantity
-8. 所在仓库及位置 store_location
+8. 所在仓库及位置 store_id
+9. 所在位置 store_location
 
 
 供应商物料表 supplier_table

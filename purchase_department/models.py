@@ -41,14 +41,14 @@ class Supplier(models.Model):
         (3, 'm3'),
     )
     manufacturer = models.CharField('供应商', max_length=200)
-    manufacturer_level = models.SmallIntegerField('供应商等级', choices=manufacturer_level_choice)
+    manufacturer_level = models.PositiveSmallIntegerField('供应商等级', choices=manufacturer_level_choice)
     material_number = models.PositiveIntegerField('物料编号', unique=True)
     material_name = models.CharField('物料名称',max_length=40, unique=True)
-    material_group = models.SmallIntegerField('物料组', choices=material_group_choice,)
-    payment_method = models.SmallIntegerField('付款方式', choices=payment_method_choice)
+    material_group = models.PositiveSmallIntegerField('物料组', choices=material_group_choice,)
+    payment_method = models.PositiveSmallIntegerField('付款方式', choices=payment_method_choice)
     material_remarks = models.CharField('物料备注', max_length=100)
     discount_info = models.CharField('优惠信息', max_length=200)
-    material_unit = models.SmallIntegerField('物料单位', choices=material_unit_choice)
+    material_unit = models.PositiveSmallIntegerField('物料单位', choices=material_unit_choice)
     supply_cycle = models.CharField('供货周期', max_length=100)
     purchase_price = models.IntegerField('采购价格')
 
@@ -61,41 +61,13 @@ class Supplier(models.Model):
 
 
 class Store(models.Model):
-    material_number = models.OneToOneField(
+    material_number = models.ForeignKey(
         Supplier,
         on_delete=models.CASCADE,
-        to_field='material_number',
         verbose_name='物料编号',
-        related_name='material_number_store',
-        unique=True
+        related_name='material_number_store'
     )
-    material_name = models.OneToOneField(
-        Supplier,
-        on_delete=models.CASCADE,
-        to_field='material_name',
-        verbose_name='物料名称',
-        related_name='material_name_store',
-        unique=True
-    )
-    material_unit = models.ForeignKey(
-        Supplier,
-        on_delete=models.CASCADE,
-        verbose_name='物料单位',
-        related_name='material_unit_store',
-    )
-    material_group = models.ForeignKey(
-        Supplier,
-        on_delete=models.CASCADE,
-        verbose_name='物料组',
-        related_name='material_group_store',
-    )
-    manufacturer = models.ForeignKey(
-        Supplier,
-        on_delete=models.CASCADE,
-        verbose_name='供应商名称',
-        related_name='manufacturer_store',
-    )
-    material_remarks = models.CharField('物料备注', max_length=100)
+    material_remarks_store = models.CharField('物料备注', max_length=100)
     inventory_quantity = models.PositiveIntegerField('库存数量')
     store_location = models.CharField('物料所在位置', max_length=100)
 

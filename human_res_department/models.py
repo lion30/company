@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Employee(models.Model):
@@ -41,16 +42,20 @@ class Employee(models.Model):
         (18, '总经理助理'),
         (19, '现场服务工程师'),
     )
-    employee_id = models.IntegerField('员工编号',unique=True)
-    employee_name = models.CharField('员工姓名',max_length=40,unique=True)
+    employee_id = models.IntegerField('员工编号', unique=True)
+    employee_name = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name="+",
+        verbose_name="员工姓名")
     employee_age = models.IntegerField('员工年龄')
     enter_company_time = models.DateField('入职时间')
-    employee_department = models.SmallIntegerField('所属部门', choices=department_choices)
-    staff_seniorty = models.IntegerField('工龄')
-    employee_position = models.SmallIntegerField('所属职位', choices=position_choices)
+    employee_department = models.PositiveSmallIntegerField('所属部门', choices=department_choices)
+    staff_seniority = models.PositiveSmallIntegerField('工龄')
+    employee_position = models.PositiveSmallIntegerField('所属职位', choices=position_choices)
 
     def __str__(self):
-        return self.employee_name
+        return self.employee_id
 
     class Meta:
         verbose_name = '人力资源部'
