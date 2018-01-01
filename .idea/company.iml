@@ -22,6 +22,8 @@
       <list>
         <option value="$MODULE_DIR$/templates" />
         <option value="$MODULE_DIR$/human_res_department/templates" />
+        <option value="$MODULE_DIR$/purchase_department/templates" />
+        <option value="$MODULE_DIR$/sales_department/templates" />
       </list>
     </option>
   </component>

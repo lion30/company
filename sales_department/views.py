@@ -1,3 +1,6 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def sales_index(request):
+    template_name = 'sales.html'
+    return render(request, template_name)
