@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>公司首页</title>
+    <link rel="stylesheet" href="/static/bootstrap.min.css">
+</head>
+<body>
+
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-10">
+            <ul class="nav nav-pills">
+                <li role="presentation" class="active"><a href="#">首页</a></li>
+                <li role="presentation" ><a href="#">公司要闻</a></li>
+                <li role="presentation" ><a href="#">公司通讯簿</a></li>
+                <li role="presentation" ><a href="#">公司组织架构</a></li>
+                <li role="presentation" class="dropdown">
+                    <a class="dropdown-toggle"
+                       data-toggle="dropdown"
+                       href="#"
+                       role="button"
+                       aria-haspopup="true"
+                       aria-expanded="false">
+                        部门网页 <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">销售部</a></li>
+                        <li><a href="#">售前部</a></li>
+                        <li><a href="#">设计部</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="input-group">
+                <input type="text" class="form-control" aria-label="...">
+                <div class="input-group-btn">
+                    <button type="button"
+                            class="btn btn-default dropdown-toggle"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false">Action <span class="caret"></span></button>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                    </ul>
+                </div><!-- /btn-group -->
+            </div><!-- /input-group -->
+        </div>
+        <div class="col-xs-12 col-md-2">
+            <div class="well">
+            {% if user.is_authenticated %}
+                <p>{{ user.username }},欢迎来到论坛.</p>
+                <a href="/accounts/logout">登出</a>&nbsp;<a href="/accounts/password_change/">修改密码</a>
+                {% if msg_cnt %}
+                    <a href="/message/list"><span class="badge">{{ msg_cnt }}</span></a>
+                {% endif %}
+                {% if user.userprofile.avatar %}
+                    <img src="{{ user.userprofile.avatar }}" alt="头像文字" style="width: 100%; height: 150px;" />
+                {% else %}
+                    <a href="/usercenter/uploadavatar/">
+                    您还没有头像，去上传
+                    </a>
+                {% endif %}
+            {% else %}
+                <p>匿名用户，请<a href="/accounts/login">登陆</a></p>
+            {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+    <div class="col-xs-12 col-md-2">
+        <table class="table table-bordered">
+            <span>快捷入口</span>
+        <tbody>
+        <tr>
+            <td>合同入库</td>
+        </tr>
+        <tr>
+          <td>装置设计进度</td>
+        </tr>
+        <tr>
+          <td>装置厂内设计进度</td>
+        </tr>
+        </tbody>
+        </table>
+    </div>
+<div class="col-xs-12 col-md-8">
+<table class="table table-hover">
+    <span>公司要闻</span>
+    <tbody>
+        <tr>
+          <td>公司于本月15日前率先完成半年目标</td>
+          <td>6/20</td>
+        </tr>
+        <tr>
+          <td>工程见闻：行走在新疆，感受不一样的风情</td>
+          <td>6/21</td>
+        </tr>
+        <tr>
+          <td>总经理李二蛋与中建八十局领导开会讨论公司三年战略</td>
+          <td>6/24</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<div class="col-xs-12 col-md-2">
+<table class="table table-hover">
+    <span> 会议室使用情况 </span>
+      <tbody>
+        <tr>
+          <td>春雨</td>
+          <td>10：00-11：00</td>
+        </tr>
+        <tr>
+          <td>夏阳</td>
+          <td>9：30-9：50</td>>
+        </tr>
+        <tr>
+          <td>秋蝉</td>
+          <td>10：30-11：30</td>
+        </tr>
+        <tr>
+          <td>冬雪</td>
+          <td>11：30-14：30</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+</div>
+</div>
+    <script type="text/javascript" src="/static/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+{% endblock %}
+</body>
+</html>
