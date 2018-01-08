@@ -26,7 +26,7 @@ class Design(models.Model):
     )
 
     def __str__(self):
-        return self.project_name
+        return "设计部"
 
     class Meta:
         verbose_name = "设计部"

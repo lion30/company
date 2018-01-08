@@ -68,31 +68,35 @@
             <caption>销售线索</caption>
             <thead>
                 <tr>
-                    <th style="width:164px;">合同编号</th>
-                    <th>合同名称</th>
-                    <th>运作方式</th>
+                    <th style="width:164px;">线索编号</th>
+                    <th>线索名称</th>
+                    <th>线索来源</th>
                     <th>所属行业</th>
-                    <th>下一步计划</th>
-                    <th>最后更新时间</th>
+                    <th>所处阶段</th>
+                    <th>下一步工作</th>
+                    <th>项目预估合同额</th>
+                    <th>项目情况简述</th>
+                    <th>线索建立时间</th>
+                    <th>线索最后更新时间</th>
+                    <th>线索建立人</th>
                 </tr>
             </thead>
             <tbody>
+            {% for contract_clue in contract_clues %}
                 <tr>
-                    <td>JB17ER3333 </td>
-                    <td>SHANXI MEIKUANG GAIZAO </td>
-                    <td>SUOSHUHANGYE </td>
-                    <td>huodian </td>
-                    <td>genjinxiang </td>
-                    <td>2017-12-12</td>
+                    <td>{{ contract_clue.project_number }} </td>
+                    <td>{{ contract_clue.project_name }}</td>
+                    <td>{{ contract_clue.clue_source }}</td>
+                    <td>{{ contract_clue.belong_industry }}</td>
+                    <td>{{ contract_clue.at_stage }}</td>
+                    <td>{{ contract_clue.next_plan }}</td>
+                    <td>{{ contract_clue.estimate_contract }}</td>
+                    <td>{{ contract_clue.intro_situation }}</td>
+                    <td>{{ contract_clue.establish_time }}</td>
+                    <td>{{ contract_clue.last_update_time }}</td>
+                    <td>{{ contract_clue.establish_person }}</td>
                 </tr>
-                <tr>
-                    <td>Cell 3</td>
-                    <td>Cell 4</td>
-                    <td>Cell 4</td>
-                    <td>Cell 4</td>
-                    <td>Cell 4</td>
-                    <td>Cell 4</td>
-                </tr>
+            {% endfor %}
             </tbody>
         </table>
         </div>

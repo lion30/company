@@ -55,7 +55,7 @@ class Employee(models.Model):
     employee_position = models.PositiveSmallIntegerField('所属职位', choices=position_choices)
 
     def __str__(self):
-        return self.employee_id
+        return '人力资源部'
 
     class Meta:
         verbose_name = '人力资源部'

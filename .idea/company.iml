@@ -13,7 +13,7 @@
   </component>
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$" />
-    <orderEntry type="jdk" jdkName="Python 3.5.3 (D:\liwang\python\python.exe)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.5.2+ virtualenv at ~/company" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TemplatesService">
@@ -22,7 +22,6 @@
       <list>
         <option value="$MODULE_DIR$/templates" />
         <option value="$MODULE_DIR$/human_res_department/templates" />
-        <option value="$MODULE_DIR$/purchase_department/templates" />
         <option value="$MODULE_DIR$/sales_department/templates" />
       </list>
     </option>
