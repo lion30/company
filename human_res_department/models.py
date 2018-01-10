@@ -46,7 +46,7 @@ class Employee(models.Model):
     employee_name = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
-        related_name="+",
+        related_name="user_fk",
         verbose_name="员工姓名")
     employee_age = models.IntegerField('员工年龄')
     enter_company_time = models.DateField('入职时间')

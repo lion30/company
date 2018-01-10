@@ -83,11 +83,12 @@
                 <tr>
                     <td>{{ employee_information.employee_id }}</td>
                     <td>{{employee_information.employee_name}} </td>
-                    <td>{{employee_information.employee_department}}</td>
-                    <td>{{employee_information.employee_position}}</td>
+                    <td>{{employee_information.get_employee_department_display}}</td>
+                    <td>{{employee_information.get_employee_position_display}}</td>
                     <td>{{employee_information.enter_company_time}}</td>
                     <td>{{employee_information.employee_age}}</td>
                     <td>{{employee_information.staff_seniority}}</td>
+                    <td>{{employee_information.employee_name.email}}</td>
             {% endfor %}
             {% for employee_data in Employee_data %}
                     <td>{{ employee_data.email }}</td>

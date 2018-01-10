@@ -12,7 +12,11 @@ class HumanRes(View):
 
     def get(self, request):
         Employee_info = Employee.objects.all()
-        Employee_data = User.objects.all()
-        return render(request, self.template_name, {'Employee_info': Employee_info,
-                                                    'Employee_data': Employee_data})
+        datas = []
+        for data in Employee_info:
+            datas.append(data.employee_name.email)
+            data.get_employee_position_display()
+        print(datas)
+
+        return render(request, self.template_name, {'Employee_info': Employee_info})
 
