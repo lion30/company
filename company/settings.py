@@ -94,7 +94,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'company',
         'USER': 'root',
-        'PASSWORD': 'xiaohen-616',
+        'PASSWORD': 'xiaohen30',
         'HOST': '127.0.0.1',
         'PORT': '3306',
     }
@@ -151,4 +151,3 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),
                     os.path.join(BASE_DIR, 'DjangoUeditor/static'), )
 
 LOGIN_REDIRECT_URL = '/'
-

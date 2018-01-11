@@ -23,5 +23,6 @@ urlpatterns = [
     url(r'^$', index),
     url(r'^sales/', include('sales_department.urls')),
     url(r'^human_res/', include('human_res_department.urls')),
+    url(r'^pre_sale/', include('pre_sales_department.urls')),
 
 ]

@@ -69,25 +69,30 @@
                 <tr>
                     <th style="width:164px;">项目编号</th>
                     <th>项目名称</th>
-                    <th>所属部门</th>
-                    <th>职位</th>
-                    <th>入职时间</th>
-                    <th>年龄</th>
-                    <th>工龄</th>
-                    <th>员工邮箱</th>
+                    <th>物料编号</th>
+                    <th>物料名称</th>
+                    <th>供货数量</th>
+                    <th>投标价格</th>
+                    <th>销售负责人</th>
+                    <th>售前负责人</th>
+                    <th>技术负责人</th>
                 </tr>
             </thead>
             <tbody>
-            {% for employee_information in Employee_info %}
-
+            {% for presale_info in pre_sale_data %}
                 <tr>
-                    <td>{{ employee_information.employee_id }}</td>
-                    <td>{{employee_information.employee_name}} </td>
-                    <td>{{employee_information.employee_department}}</td>
-                    <td>{{employee_information.employee_position}}</td>
-                    <td>{{employee_information.enter_company_time}}</td>
-                    <td>{{employee_information.employee_age}}</td>
-                    <td>{{employee_information.staff_seniority}}</td>
+                    <td>{{ presale_info.project_number_pre_sale.project_number}}</td>
+                    <td>{{ presale_info.project_number_pre_sale.project_name}}</td>
+                    <td>{{ presale_info.material_number_pre_sale.material_number}}</td>
+                    <td>{{ presale_info.material_number_pre_sale.material_name}}</td>
+                    <td>{{ presale_info.material_count}}</td>
+                    <td>{{ presale_info.bid_price}}</td>
+                    <td>{{ presale_info.project_number_pre_sale.establish_person}}</td>
+                    <td>{{ presale_info.employee_name}}</td>
+                    <td>待完善</td>
+
+
+
             {% endfor %}
             {% for employee_data in Employee_data %}
                     <td>{{ employee_data.email }}</td>
