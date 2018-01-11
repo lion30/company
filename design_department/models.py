@@ -15,7 +15,7 @@ class Design(models.Model):
     contract_person = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
-        verbose_name='销售联系人')
+        verbose_name='设计负责人')
     delivery_time = models.DateField('交货时间')
     material_count = models.IntegerField('供货数量')
     material_number = models.ForeignKey(

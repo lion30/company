@@ -1,6 +1,5 @@
 from django.views.generic import View
 from django.shortcuts import render
-from django.contrib.auth.models import User
 from .models import Presale
 
 class PreSaleView(View):
