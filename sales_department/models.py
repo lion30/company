@@ -24,7 +24,7 @@ class Contractclue(models.Model):
         (6, '现场调试阶段'),
         (7, '已投运'),
         (8, '暂停阶段')))
-    next_plan = models.CharField('下一步工作',max_length=400)
+    next_plan = models.CharField('下一步工作', max_length=400)
     estimate_contract = models.IntegerField('项目预估合同额')
     intro_situation = models.CharField('项目情况简述', max_length=400)
     establish_time = models.DateField(auto_now_add=True)

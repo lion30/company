@@ -93,13 +93,13 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'company',
         'USER': 'root',
-        'PASSWORD': 'xiaohen-616',
+        'PASSWORD': 'xiaohen30',
         'HOST': '127.0.0.1',
         'PORT': '3306',
     }
 }
 
-#use sqlite3
+# use sqlite3
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
