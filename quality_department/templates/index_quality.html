@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/user.css">
+    <link rel="stylesheet" href="/static/css/Article-List.css">
+    <link rel="stylesheet" href="/static/css/Pretty-Header.css">
+    <link rel="stylesheet" href="/static/css/Pretty-Footer.css">
+    <link rel="stylesheet" href="/static/css/Header-Blue.css">
+    <link rel="stylesheet" href="/static/css/Navigation-with-Button1.css">
+    <link rel="stylesheet" href="/static/css/Navigation-with-Search1.css">
+    <link rel="stylesheet" href="/static/css/Simple-Slider.css">
+    <link rel="stylesheet" href="/static/css/Team-Grid.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-default custom-header" style="background-color:rgb(255,255,255);">
+        <div class="container-fluid">
+            <div class="navbar-header"><a class="navbar-brand" href="/" style="color:#e70d0d;background-color:rgb(255,255,255);">Sales </a><button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button></div>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav links">
+                    <li role="presentation"><a href="#" style="background-color:rgb(255,255,255);color:rgb(0,0,0);">员工信息</a></li>
+                    <li role="presentation" ><a href="#" style="background-color:rgb(255,255,255);color:rgb(0,0,0);">我的组织 </a></li>
+                    <li role="presentation"><a href="#" style="background-color:rgb(255,255,255);color:rgb(0,0,0);">我的提交</a></li>
+                    <li role="presentation"><a href="#" style="background-color:rgb(255,255,255);color:rgb(0,0,0);">我的统计</a></li>
+                    <li role="presentation"><a href="#" class="custom-navbar" style="background-color:rgb(255,255,255);color:rgb(0,0,0);">消息<span class="badge">new</span></a></li>
+                </ul>
+                <form class="navbar-form navbar-left" target="_self">
+                        <div class="form-group">
+                            <label class="control-label" for="search-field">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </label>
+                            <input class="form-control search-field"
+                                   type="search" name="search"
+                                   placeholder="请输入搜索内容..."
+                                   autofocus=""
+                                   autocomplete="on"
+                                   id="search-field">
+                        </div>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle"
+                           data-toggle="dropdown"
+                           aria-expanded="false"
+                           href="#"
+                           style="background-color:rgb(255,255,255);"> <span class="caret"></span>
+                            <img src="" class="dropdown-image"></a>
+                        <ul class="dropdown-menu dropdown-menu-right"
+                            role="menu">
+                            <li role="presentation"><a href="#">我的资料</a></li>
+                            <li role="presentation" class="active"><a href="#">登出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+        </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <caption>员工信息</caption>
+            <thead>
+                <tr>
+                    <th style="width:164px;">员工编号</th>
+                    <th>员工姓名</th>
+                    <th>所属部门</th>
+                    <th>职位</th>
+                    <th>入职时间</th>
+                    <th>年龄</th>
+                    <th>工龄</th>
+                    <th>员工邮箱</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for employee_information in Employee_all_data %}
+
+                <tr>
+                    <td>{{ employee_information.employee_id }}</td>
+                    <td>{{employee_information.employee_name}} </td>
+                    <td>{{employee_information.get_employee_department_display}}</td>
+                    <td>{{employee_information.get_employee_position_display}}</td>
+                    <td>{{employee_information.enter_company_time}}</td>
+                    <td>{{employee_information.employee_age}}</td>
+                    <td>{{employee_information.staff_seniority}}</td>
+                    <td>{{employee_information.employee_name.email}}</td>
+            {% endfor %}
+            {% for employee_data in Employee_data %}
+                    <td>{{ employee_data.email }}</td>
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+        </div>
+        </div>
+        </div>
+        <script src="/static/js/jquery.min.js"></script>
+        <script src="/static/js/bootstrap.min.js"></script>
+        <script src="/static/js/bs-animation.js"></script>
+        <script src="/static/js/Simple-Slider.js"></script>
+
+</body>
+
+</html>
