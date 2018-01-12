@@ -10,6 +10,6 @@ class DesignView(View):
     #     self.Design_data = Design.objects.all()
 
     def get(self, request):
-       Design_data = Design.objects.all()
-       return render(request, self.template_name, {"Design_data": Design_data})
-
+        Design_data = Design.objects.all()
+        return render(request, self.template_name,
+                      {"Design_data": Design_data})
