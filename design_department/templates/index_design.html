@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -73,29 +72,27 @@
                     <th>设计负责人</th>
                     <th>物料编号</th>
                     <th>物料名称</th>
+                    <th>物料单位</th>
                     <th>供货数量</th>
+                    <th>物料备注</th>
                     <th>交货时间</th>
                     <th>技术负责人</th>
                 </tr>
             </thead>
             <tbody>
-            {% for presale_info in pre_sale_data %}
+            {% for design_info in Design_data %}
                 <tr>
-                    <td>{{ presale_info.project_number_pre_sale.project_number}}</td>
-                    <td>{{ presale_info.project_number_pre_sale.project_name}}</td>
-                    <td>{{ presale_info.material_number_pre_sale.material_number}}</td>
-                    <td>{{ presale_info.material_number_pre_sale.material_name}}</td>
-                    <td>{{ presale_info.material_count}}</td>
-                    <td>{{ presale_info.bid_price}}</td>
-                    <td>{{ presale_info.project_number_pre_sale.establish_person}}</td>
-                    <td>{{ presale_info.employee_name}}</td>
-                    <td>待完善</td>
-
-
-
-            {% endfor %}
-            {% for employee_data in Employee_data %}
-                    <td>{{ employee_data.email }}</td>
+                    <td>{{ design_info.project_number_desi.project_number}}</td>
+                    <td>{{ design_info.project_number_desi.project_name}}</td>
+                    <td>{{ design_info.project_number_desi.establish_person}}</td>
+                    <td>{{ design_info.contract_person}}</td>
+                    <td>{{ design_info.material_number_desi.material_number}}</td>
+                    <td>{{ design_info.material_number_desi.material_name}}</td>
+                    <td>{{ design_info.material_number_desi.material_unit}}</td>
+                    <td>{{ design_info.material_count}}</td>
+                    <td>{{ design_info.material_number_desi.material_remarks}}</td>
+                    <td>{{ design_info.delivery_time}}</td>
+                    <td>{{ design_info.contract_person}}</td>
                 </tr>
             {% endfor %}
 
@@ -108,7 +105,5 @@
         <script src="/static/js/bootstrap.min.js"></script>
         <script src="/static/js/bs-animation.js"></script>
         <script src="/static/js/Simple-Slider.js"></script>
-
 </body>
-
 </html>
