@@ -39,9 +39,32 @@
 8. 投标价格 bid_price
 9. 销售 employee_name
 10. 工号 employee_id
-11. 采购价格purchase_name 
+11. 采购价格purchase_name
 
 #3.研发部
+##3.1 研发项目表
+1. 项目编号project_number(fk)
+2. 项目名称project_name(fk)
+3. 
+
+
+##3.2 研发产品表
+1. 产品物料编号product_number(fk)
+2. 产品物料名称product_name(fk)
+3. 产品构成物料编号product_consist_number_(fk)
+4. 产品构成物料名称product_consist_name(fk)
+5. 产品构成物料单位product_consist_unit(fk)
+6. 产品构成数量product_count
+7. 产品一级图first_class_diagram
+8. 产品二级图second_class_diagram
+9. 产品说明书product_manual
+10. 产品产线测试手册line_test_manual
+11. 产品出厂测试手册factory_test_manual
+12. 产品检验报告Inspection_report
+13. 产品源代码
+14. 产品其他资料
+15. 产品负责人
+
 
 #4. 设计部
 ##4.1 正式项目表 contract_table
@@ -137,7 +160,7 @@
 
 供应商物料表 supplier_table
 1. 供应商manufacturer
-2. 供应商等级 manufacturer_level 
+2. 供应商等级 manufacturer_level
 3. 物料编号material_number
 4. 物料名称material_name
 5. 物料组material_group
