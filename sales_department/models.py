@@ -14,6 +14,15 @@ class Contractclue(models.Model):
         (3, '核电'),
         (4, '化工'),
         (5, '轨道交通')))
+    project_area = models.SmallIntegerField(verbose_name='项目区域',
+                                            choices=(
+                                                (0, '东北区'),
+                                                (1, '华北区'),
+                                                (2, '华中区'),
+                                                (3, '华南区'),
+                                                (4, '新疆'),
+                                                (5, '西北区'))
+                                            )
     at_stage = models.SmallIntegerField('所处阶段', choices=(
         (0, '市场前期'),
         (1, '售前阶段'),
@@ -27,11 +36,12 @@ class Contractclue(models.Model):
     next_plan = models.CharField('下一步工作', max_length=400)
     estimate_contract = models.IntegerField('项目预估合同额')
     intro_situation = models.CharField('项目情况简述', max_length=400)
-    establish_time = models.DateField(auto_now_add=True)
-    last_update_time = models.DateField(auto_now=True)
+    establish_time = models.DateField('线索建立时间', auto_now_add=True)
+    last_update_time = models.DateField('线索更新时间', auto_now=True)
     establish_person = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
+        related_name='establish_info',
         verbose_name='线索建立人')
 
     def __str__(self):

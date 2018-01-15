@@ -46,7 +46,7 @@ class Supplier(models.Model):
     material_name = models.CharField('物料名称',max_length=40, unique=True)
     material_group = models.PositiveSmallIntegerField('物料组', choices=material_group_choice,)
     payment_method = models.PositiveSmallIntegerField('付款方式', choices=payment_method_choice)
-    material_remarks = models.CharField('物料备注', max_length=100)
+    material_remarks_supplier = models.CharField('物料备注', max_length=100)
     discount_info = models.CharField('优惠信息', max_length=200)
     material_unit = models.PositiveSmallIntegerField('物料单位', choices=material_unit_choice)
     supply_cycle = models.CharField('供货周期', max_length=100)
@@ -61,15 +61,19 @@ class Supplier(models.Model):
 
 
 class Store(models.Model):
-    material_number = models.ForeignKey(
+    material_info = models.ForeignKey(
         Supplier,
         on_delete=models.CASCADE,
         verbose_name='物料编号',
-        related_name='material_number_store'
+        related_name='material_info_supplier'
     )
     material_remarks_store = models.CharField('物料备注', max_length=100)
     inventory_quantity = models.PositiveIntegerField('库存数量')
-    store_location = models.CharField('物料所在位置', max_length=100)
+    store_id = models.PositiveSmallIntegerField('库房序号')
+    store_locker = models.PositiveSmallIntegerField('库房柜号')
+    locker_x = models.PositiveSmallIntegerField('柜横坐标')
+    locker_y = models.PositiveSmallIntegerField('柜纵坐标')
+    locker_z = models.PositiveSmallIntegerField('柜深坐标')
 
     def __str__(self):
         return self.store_location

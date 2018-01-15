@@ -1,3 +1,7 @@
 from django.shortcuts import render
+from django.views.generic import View
 
-# Create your views here.
+
+class DevelopView(View):
+    """研发部view"""
+    def init_data(self):
