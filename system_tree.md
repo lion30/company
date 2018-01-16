@@ -16,11 +16,11 @@
 
 #1. 销售部sales_department
 ##1.1 线索项目表 Contract_clue
-1. 项目编号 project_number
-2. 项目名称 project_name
+1. 项目编号 clue_number
+2. 项目名称 clue_name
 3. 线索来源 clue_source
 4. 所处行业 belong_industry
-5. 项目所在区域project_area
+5. 项目所在区域clue_area
 6. 项目所处阶段 at_stage
 7. 下一步工作 next_plan
 8. 项目预估合同额 estimate_contract
@@ -30,6 +30,18 @@
 12. 线索建立人 establish_person(fk_User)
 13. 项目状态 project_status
 
+##1.2 合同表
+1. 合同编号 project_number
+2. 合同名称 project_name
+3. 合同金额 contract_amount
+4. 合同付款方式 contract_payment
+5. 订货单位 customer_name
+6. 所属行业 belong_industry 
+7. 合同所在区域中project_area
+8. 签订人员salesperson
+9.  
+
+## 1.2 
 #2. 售前部pre_sales_department
 ##3.1 售前项目表 Presale
 1. 项目编号 project_number(fk_Contract_clue)
