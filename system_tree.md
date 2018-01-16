@@ -7,11 +7,12 @@
 6. 采购部purchase_department
 7. 厂内测试部test_department
 8. 质检部quality_department
-9. 工程部engineering_department
-10. 技术支持部tech_support_department
-11. 人力资源部human_res_department
-12. 市场部marketing_department
-13. 综合管理部integrated_department
+9. 发货部Delivery_department
+10. 工程部engineering_department
+11. 技术支持部tech_support_department
+12. 人力资源部human_res_department
+13. 市场部marketing_department
+14. 综合管理部integrated_department
 
 #1. 销售部sales_department
 ##1.1 线索项目表 Contract_clue
@@ -27,6 +28,7 @@
 10. 线索建立时间 estabish_time
 11. 线索最后更新时间 last_update_time
 12. 线索建立人 establish_person(fk_User)
+13. 项目状态 project_status
 
 #2. 售前部pre_sales_department
 ##3.1 售前项目表 Presale
@@ -42,24 +44,28 @@
 10. 投标价格 bid_price
 11. 售前负责人 employee_presale(fk_User)
 12. 开标时间 bid_open_time
+13. 项目状态 project_status
 
-#3.研发部
-##3.1 研发项目表
-1. 项目编号project_number(fk)
-2. 项目名称project_name(fk)
+#3.研发部develop_department
+##3.1 研发项目表Develop_project
+1. 项目编号project_number(fk_Contract_clue)
+2. 项目名称project_name(fk_Contract_clue)
 3. 项目需求简述project_requirement
-4. 涉及产品project_product(fk)
-5. 涉及产品负责人project_product_owner(fk)
+4. 涉及产品project_product(fk_Develop_product)
+5. 涉及产品负责人project_product_owner(fk_Develop_product)
 6. 项目计划完成时间project_finish_plan_time
 7. 项目经理project_manager
 8. 项目小组成员project_member
 9. 项目等级project_level
-##3.2 研发产品表
-1. 产品物料编号product_number(fk)
-2. 产品物料名称product_name(fk)
-3. 产品构成物料编号product_consist_number_(fk)
-4. 产品构成物料名称product_consist_name(fk)
-5. 产品构成物料单位product_consist_unit(fk)
+10. 项目状态project_status
+
+##3.2 研发产品表Develop_product
+1. 产品物料编号product_number(fk_Supplier)
+2. 产品物料名称product_name(fk_Supplier)
+3. 产品单位product_unit(fk_Supplier)
+3. 产品构成物料编号product_consist_number_(fk_Supplier)
+4. 产品构成物料名称product_consist_name(fk_Supplier)
+5. 产品构成物料单位product_consist_unit(fk_Supplier)
 6. 产品构成数量product_count
 7. 产品一级图first_class_diagram
 8. 产品二级图second_class_diagram
@@ -72,7 +78,7 @@
 15. 产品负责人product_owner
 
 
-#4. 设计部
+#4. 设计部design_department
 ##4.1 正式项目表 contract_table
 1. 项目编号project_number (fk)
 2. 项目名称project_name (fk)
@@ -122,85 +128,70 @@
 11. 柜纵坐标 locker_y
 12. 柜深坐标 locker_z
 
-#7 厂内测试部
-1. 项目编号project_number(fk_Design)
-2. 项目名称project_name(fk_Design)
+#7 厂内测试部test_department
+1. 项目编号project_number(fk_Contract_clue)
+2. 项目名称project_name(fk_Contract_clue)
 3. 测试人员(fk_User)
-4. 测试报告
-5. 测试开始时间
-6. 测试结束时间
+4. 测试报告test_report
+5. 测试开始时间test_starttime
+6. 测试结束时间test_endtime
+7. 测试结论test_conclusion
+8. 项目状态project_status
 
-#8 质检部
-1. 项目编号
-2. 项目名称
-3. 质检人员
-4. 质检开始时间
-5. 质检结束时间
-6. 产品合格证
+#8 质检部quality_department
+1. 项目编号project_number(fk_Contract_clue)
+2. 项目名称project_name(fk_Contract_clue)
+3. 质检人员quality_owner(fk_User)
+4. 质检开始时间quality_starttime
+5. 质检结束时间quality_endtime
+6. 产品合格证product_certification
+7. 项目状态project_status
 
-#9. 工程部
-1. 项目编号project_number(fk)
-2. 项目名称project_name(fk)
-3. 项目所属区域project_area
-4. 项目类型project_type
+#9 发货部Delivery_department
+1. 项目编号project_number(fk_Contract_clue)
+2. 项目名称project_name(fk_Contract_clue)
+3. 物料编号material_number(fk_Supplier)
+4. 物料名称material_name(fk_Supplier)
+5. 物料数量material_count(fk_Design_department)
+
+#9. 工程部engineering_department
+1. 项目编号project_number(fk_Contract_clue)
+2. 项目名称project_name(fk_Contract_clue)
+3. 项目所属区域project_area(fk_Contract_clue)
+4. 项目类型project_type(fk_Contract_clue)
 5. 项目实施时间project_implement_time
 6. 项目实施内容project_implement_content
 7. 项目实施负责人project_implement_employee
 8. 项目状态project_status
 
-#10 技术支持部
-1. 项目编号
-2. 项目名称
-3. 装置类型
-4. 技术支持时间
-5. 技术支持内容
-6. 技术支持负责人
-7. 完成支持时间
+#10 技术支持部support_department
+1. 项目编号project_number(fk_Contract_clue)
+2. 项目名称project_name(fk_Contract_clue)
+3. 装置名称(fk_Supplier)
+4. 技术支持时间support_starttime
+5. 技术支持内容support_content
+6. 技术支持负责人support_person
+7. 完成支持时间support_finishtime
+8. 被支持人be_supported_person
 
-#11. 人力资源部
-###11.1 业务部门表 business_department
-1. 销售部sales_department
-2. 售前部pre_sales_department
-3. 研发部develop_department
-4. 设计部design_department
-5. 生产部product_department
-6. 采购部purchase_department
-7. 厂内测试部test_department
-8. 质检部quality_department
-9. 工程部engineering_department
-10. 技术支持部tech_support_department
-11. 人力资源部human_res_department
-12. 市场宣传部marketing_department
-
-###11.2 人员表 staff_table
-1. 工号 job_number
+#11. 人力资源部human_res_department
+## 11.1 员工表 Employee
+1. 工号 employee_id
 2. 姓名 employee_name
-3. 出生年月 birthday
-4. 进入公司时间enter_company_time
-5. 工龄 staff_seniority
-6. 所属部门 department(fk)
-7. 职位 staff_position(fk)
+3. 年龄 employee_age
+3. 出生日期 birthday
+4. 入职时间 enter_company_time
+5. 所属部门 employee_department
+6. 工龄 staff_seniority
+7. 职位 staff_position
 
-###11.3 职位表 position_table
-1. 售前工程师 presale_engineer
-2. 设计工程师 design_engineer
-3. 销售经理 sales_engineer
-4. 市场专员 market_engineer
-5. 库房管理员 storeroom_keeper
-6. 部门经理 department_manager
-7. 部门副经理 deputy_department_manager
-8. 大区经理 region_sales_manager
-9. 省区经理 provincial_manager
-10. 生产副总经理 deputy_production_gmanager
-11. 销售副总经理 deputy_sales_gmanager
-12. 市场副总经理 deputy_marketing_gmanager
-13. 生产总经理 production_gmanager
-14. 销售总经理 sales_gmanager
-15. 市场总经理 market_gmanager
-16. 综合管理部副经理 deputy_integrated_manager
-17. 综合管理部经理 integrated_manager
-16. 总经理 general_manager
-17. 总经理助理 general_namager_assistant
+## 11.2 部门表 Department
+1. 部门名称 department_name
+2. 部门备注 department_remark
+
+## 11.3 职位表 Position
+1. 职位名称 position_name
+2. 职位说明 position_remark
 
 #12. 市场部marketing_department
 ##12.1 自产信息表

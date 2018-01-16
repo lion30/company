@@ -1,9 +1,14 @@
 from django.db import models
-from engineering_department.models import
+from sales_department.models import Contractclue
 
 class Develop_project(models.Model):
     """研发部工程数据库"""
-    project_info = models.ForeignKey(to, on_delete=None, related_name=None, related_query_name=None, limit_choices_to=None, parent_link=False, to_field=None, db_constraint=True)
+    project_info = models.ForeignKey(Contractclue,
+                                     related_name='project_info_develop',
+                                     on_delete=models.CASCADE,
+                                     verbose_name='研发项目信息')
+    project_requirement = models.CharField(max_length=500)
+
 
 
 class Develop_product(object):

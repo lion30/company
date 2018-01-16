@@ -49,6 +49,7 @@ class Employee(models.Model):
         related_name="user_fk",
         verbose_name="员工姓名")
     employee_age = models.IntegerField('员工年龄')
+    birthday = models.TimeField(verbose_name='出生日期')
     enter_company_time = models.DateField('入职时间')
     employee_department = models.PositiveSmallIntegerField('所属部门', choices=department_choices)
     staff_seniority = models.PositiveSmallIntegerField('工龄')
@@ -60,4 +61,3 @@ class Employee(models.Model):
     class Meta:
         verbose_name = '人力资源部'
         verbose_name_plural = '人力资源部'
-
