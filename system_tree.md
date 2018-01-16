@@ -86,12 +86,12 @@
 
 #5. 生产部product_department
 1. 装置物料编号product_number(fk_Develop)
-2. 装置物料名称
-3. 材料物料编号
-4. 材料物料名称
-5. 订单下发时间
-6. 订单状态
-7. 订单完成时间
+2. 装置物料名称product_name(fk_Develop)
+3. 材料物料编号material_number(fk_Supplier)
+4. 材料物料名称material_name(fk_Supplier)
+5. 订单下发时间order_purchase_time
+6. 订单状态order_status
+7. 订单完成时间order_finish_time
 
 #6.采购部 purchase_department
 ##6.1供应商物料表 Supplier
@@ -123,8 +123,8 @@
 12. 柜深坐标 locker_z
 
 #7 厂内测试部
-1. 项目编号
-2. 项目名称
+1. 项目编号project_number(fk_Design)
+2. 项目名称project_name(fk_Design)
 3. 测试人员(fk_User)
 4. 测试报告
 5. 测试开始时间
