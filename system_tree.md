@@ -75,7 +75,7 @@
 9. 项目等级project_level
 10. 项目状态project_status
 
-##3.2 研发产品表Develop_product
+##3.2 研发产品表 Develop_product
 4. 成品物料编号finished_product_number_(fk_Finished_product)
 5. 成品物料名称finished_product_name(fk_Finished_product)
 6. 成品物料单位finished_product_unit(fk_Finished_product)
@@ -97,8 +97,8 @@
 22. 产品其他资料other_material
 23. 产品硬件负责人product_hardware_owner
 24. 产品软件负责人product_software_owner
-25. 产品上市时间product_list_time
-26. 产品退市时间prodduct_delist_time
+25. 产品上市时间product_list_time(fk_Product_market)
+26. 产品退市时间prodduct_delist_time(fk_Product_market)
 
 
 #4. 设计部design_department
@@ -238,85 +238,131 @@
 9. 项目状态project_status
 
 #8 质检部quality_department
-1. 项目编号project_number(fk_Contract_clue)
-2. 项目名称project_name(fk_Contract_clue)
+## 8.1 厂内质检表 Quality_factory
+1. 项目编号project_number(fk_Contract)
+2. 项目名称project_name(fk_Contract)
 3. 质检人员quality_owner(fk_User)
 4. 质检开始时间quality_starttime
 5. 质检结束时间quality_endtime
-6. 产品合格证product_certification
-7. 项目状态project_status
-
-#9 发货部Delivery_department
-1. 项目编号project_number(fk_Contract_clue)
-2. 项目名称project_name(fk_Contract_clue)
-3. 物料编号material_number(fk_Supplier)
-4. 物料名称material_name(fk_Supplier)
-5. 物料数量material_count(fk_Design_department)
-
-#9. 工程部engineering_department
-1. 项目编号project_number(fk_Contract_clue)
-2. 项目名称project_name(fk_Contract_clue)
-3. 项目所属区域project_area(fk_Contract_clue)
-4. 项目类型project_type(fk_Contract_clue)
-5. 项目实施时间project_implement_time
-6. 项目实施内容project_implement_content
-7. 项目实施负责人project_implement_employee
+6. 检验结论quality_conclusion
+7. 产品合格证product_certification
 8. 项目状态project_status
 
-#10 技术支持部support_department
-1. 项目编号project_number(fk_Contract_clue)
-2. 项目名称project_name(fk_Contract_clue)
-3. 装置名称(fk_Supplier)
+#9 发货部delivery_department
+## 9.1 项目发货表 Project_delivery
+1. 项目编号project_number(fk_Contract)
+2. 项目名称project_name(fk_Contract)
+3. 物料编号material_number
+4. 物料名称material_name
+5. 物料数量material_count
+6. 物料单位 material_unit
+6. 发货状态 delivery_status
+7. 发货文档类 delivery_document
+8. 发货负责人 delivery_owner(fk_user)
+9. 收货人 delivery_receiver
+10. 收获地址 receivering_address
+11. 收货人联系方式 receiver_contact_information
+12. 承运公司 carieer_company
+13. 发货单号 invoice_number
+14. 发货日期 delivery_time
+
+
+
+# 10. 工程部engineering_department
+## 10.1 工程表Engineer_project
+1. 项目编号project_number(fk_Contract)
+2. 项目名称project_name(fk_Contract)
+3. 项目所属区域project_area(fk_Contract)
+4. 项目类型project_type(fk_Contract)
+5. 项目发货状态(fk_Project_delivery)
+6. 项目计划时间 plan_implement_time
+7. 项目实施时间 implement_time
+8. 入场时间 enter_time
+9. 离场时间 leave_time
+10. 项目实施内容implement_content
+11. 遗留问题 remaining_problem
+12. 归档资料 archival_information
+13. 用户联系人 customer_name
+14. 用户联系方式  customer_contact
+15. 项目实施负责人implement_owner(fk_user)
+16. 项目状态project_status
+
+#11 技术支持部support_department
+# 11.1 技术支持表Project_support
+1. 项目编号project_number(fk_Contract)
+2. 项目名称project_name(fk_Contract)
+3. 装置名称(fk_Finished_product)
 4. 技术支持时间support_starttime
 5. 技术支持内容support_content
-6. 技术支持负责人support_person
+6. 技术支持负责人support_person(fk_User)
 7. 完成支持时间support_finishtime
 8. 被支持人be_supported_person
+9. 被支持人单位 be_supported_firm
+10. 提供资料 support_document
+11. 遗留问题 remaining_problem
 
-#11. 人力资源部human_res_department
-## 11.1 员工表 Employee
+#12. 人力资源部human_res_department
+## 12.1 django用户表 auth_user
+1. 密码 password
+2. 最后登录 last_login
+3. 是否超级用户 is_superuser
+4. 用户名 username
+5. 姓 first_name
+6. 名 last_name
+7. 邮箱 email
+8. 是否员工 is_staff
+9. 是否激活 is_active
+10. 加入时间 date_joined
+
+## 12.2 员工表 Employee
 1. 工号 employee_id
-2. 姓名 employee_name
+2. 姓名 employee_name(fk_auth_user)
 3. 年龄 employee_age
 3. 出生日期 birthday
 4. 入职时间 enter_company_time
-5. 所属部门 employee_department
+5. 所属部门 employee_department(fk_Department)
 6. 工龄 staff_seniority
-7. 职位 staff_position
+7. 职位 staff_position(fk_Position)
 
-## 11.2 部门表 Department
+## 12.3 部门表 Department
 1. 部门名称 department_name
 2. 部门备注 department_remark
 
-## 11.3 职位表 Position
+## 12.4 职位表 Position
 1. 职位名称 position_name
 2. 职位说明 position_remark
 
-#12. 市场部marketing_department
-##12.1 自产信息表
-1. 物料编号material_number
-2. 物料名称material_name
-3. 物料单位materail_unit
-4. 物料组material_group
-5. 生产厂家manufacturer
-3. 物料类型material_type
-4. 标准价格standart_price
-5. 产品负责人product_owner
+# 13. 市场部marketing_department
+## 13.1 自产信息表 Product_market
+1. 物料编号material_number(fk_Finished_product)
+2. 物料名称material_name(fk_Finished_product)
+3. 物料单位materail_unit(fk_Finished_product)
+4. 物料组material_group(fk_Finished_product)
+5. 生产厂家manufacturer(fk_Finished_product)
+6. 物料类型material_type(fk_Finished_product)
+7. 标准价格standart_price
+8. 产品负责人product_owner(df_Develop_product)
+9. 产品市场负责人 market_owner(fk_User)
+10. 装置上市时间 product_list_time
+11. 装置退市时间 product_delist_time
+11. 价格修订时间 price_modify_time
+12. 价格修订原因 price_modify_reason
 
-#13. 综合管理部 integrated_department
-##13.1 公司发文 company_issuing_table
+
+# 14. 综合管理部 integrated_department
+## 14.1 公司发文 Company_issuing
 1. 文章名称 article_name
-2. 文章作者 article_author
-3. 所属部门 buziness_department
+2. 文章作者 article_author(fk_User)
+3. 所属部门 buziness_department(fk_User)
 4. 点击量 clicks_count
 5. 文章内容 article_content
-6. 创建时间 article_establish_time
+6. 创建时间 establish_time
 7. 文章状态 article_status
 
-##13.2 会议室 meeting_room_table
-1. 会议室申请人 conference_applicant(fk)
-2. 会议开始时间 conference_start_time
-3. 会议结束时间 conference_end_time
+## 14.2 会议室 Meeting_room
+1. 会议室申请人 conference_applicant(fk_User)
+2. 会议开始时间 conference_starttime
+3. 会议结束时间 conference_endtime
 4. 会议内容 conference_theme
 5. 会议参与人 conference_participant
 6. 会议室申请状态 room_applicant_status
