@@ -29,7 +29,9 @@
 11. 线索最后更新时间 last_update_time
 12. 线索建立人 establish_person(fk_Employee)
 13. 线索状态 clue_status
-14. 用户联系人 contact_customer
+14. 用户联系人 customer_name
+15. 用户联系方式 customer_contact
+16. 用户职务 customer_post
 
 ##1.2 合同表 Contract
 1. 合同编号 project_number
@@ -39,18 +41,20 @@
 5. 订货单位 customer_name
 6. 用户等级 customer_level
 7. 所属行业 belong_industry
-8. 合同所在区域中project_area
+8. 合同所在区域project_area
 9. 签订人员 sales_person (fk_Employee)
 10. 批准人员 approval_person(fk_Employee)
-11. 项目状态 project_status
+11. 项目状态 project_status[已返回，未返回]
 12. 合同签订时间 sign_time
 13. 合同文件 contract_file
 14. 供货时间 supply_time
 15. 项目线索 contract_clue(fk_Contract_clue)
-16. 技术协议签订时间 technical_agreement_signtime(fk_Technical_agreement)
-17. 技术负责人 technical_owner(fk_Employee)
-18. 用户商务负责人  
-19. 用户技术负责人
+16. 用户商务负责人  business_leader
+17. 商务负责人联系方式 business_leader_contact
+18. 用户技术负责人 technical_leader
+19. 用户技术负责人联系方式 technical_leader_contact
+18. 回款状态 contract_receipt
+19. 合同备注 contract_remark
 
 ## 1.3 技术协议表 Technical_agreement
 1. 合同编号 project_number(fk_Contract)
@@ -62,6 +66,12 @@
 6. 接收任务时间 receive_request_time
 7. 技术协议签订时间 technical_agreement_signtime
 8. 技术协议 technical_agreement_doc
+9. 项目进度 project_process
+10. 项目状态 project_status
+11. 当前进度负责人 www
+11. 收货人 delivery_receiver
+12. 收获地址 receivering_address
+13. 收货人联系方式 receiver_contact_information
 
 #2. 售前部presales_department
 ##3.1 售前项目表 Presale
@@ -76,9 +86,16 @@
 9. 物料类型 product_type(fk_Supplier)
 10. 供货数量 material_count
 11. 投标价格 bid_price
+12. 投标总价 bid_total_price
 12. 售前负责人 employee_presale(fk_Employee)
 13. 开标时间 bid_open_time
 14. 项目状态 project_status
+15. 技术投标文件 tech_bid_file 
+16. 商务投标文件 busi_bid_file
+17. 物料付款方式 payment_method(fk_Supplier)
+
+
+##3.2 标准报价表
 
 #3.研发部develop_department
 ##3.1 研发项目表Develop_project
