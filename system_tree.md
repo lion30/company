@@ -78,6 +78,22 @@
 1. 线索编号 clue_number(fk_Contract_clue)
 2. 线索名称 clue_name(fk_Contract_clue)
 3. 销售负责人sales_person(fk_Contract_clue)
+4. 投标总价 bid_total_price
+5. 售前负责人 employee_presale(fk_Employee)
+6. 开标时间 bid_open_time
+7. 项目状态 project_status [购买标书，标书制作，标书装订，待开标，已开标]
+8. 技术投标文件 tech_bid_file 
+9. 商务投标文件 busi_bid_file
+10. 报价表 quotation_sheet
+11. 物料付款方式 payment_method(fk_Supplier)
+12. 项目类型 project_type [’自主‘，’集成‘，’服务‘]
+13. 项目备注 project_remark 
+
+
+##3.2 标准报价表
+1. 线索编号 clue_number(fk_Contract_clue)
+2. 线索名称 clue_name(fk_Contract_clue)
+3. 销售负责人sales_person(fk_Contract_clue)
 4. 物料编号 material_number(fk_Supplier)
 5. 物料名称 material_name(fk_Supplier)
 6. 物料单位 material_unit(fk_Supplier)
@@ -85,17 +101,10 @@
 8. 标准价格 standard_outprice(fk_Supplier)
 9. 物料类型 product_type(fk_Supplier)
 10. 供货数量 material_count
-11. 投标价格 bid_price
-12. 投标总价 bid_total_price
-12. 售前负责人 employee_presale(fk_Employee)
-13. 开标时间 bid_open_time
-14. 项目状态 project_status
-15. 技术投标文件 tech_bid_file 
-16. 商务投标文件 busi_bid_file
-17. 物料付款方式 payment_method(fk_Supplier)
+11. 投标价格 bid_unit_price
+12. 分项总价 bid_price
 
 
-##3.2 标准报价表
 
 #3.研发部develop_department
 ##3.1 研发项目表Develop_project
