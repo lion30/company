@@ -82,12 +82,12 @@
 5. 售前负责人 employee_presale(fk_Employee)
 6. 开标时间 bid_open_time
 7. 项目状态 project_status [购买标书，标书制作，标书装订，待开标，已开标]
-8. 技术投标文件 tech_bid_file 
+8. 技术投标文件 tech_bid_file
 9. 商务投标文件 busi_bid_file
 10. 报价表 quotation_sheet
 11. 物料付款方式 payment_method(fk_Supplier)
 12. 项目类型 project_type [’自主‘，’集成‘，’服务‘]
-13. 项目备注 project_remark 
+13. 项目备注 project_remark
 
 
 ##3.2 标准报价表
@@ -199,9 +199,14 @@
 7. 物料名称 material_name(fk_Supplier)
 8. 物料厂家 supplier(fk_Supplier)
 9. 物料数量 material_count
-10. 图纸drawing
+10. 图纸 drawing
 11. 设计负责人design_owner(fk_Employee)
-12. 项目状态 project_status
+12. 项目状态 project_status [正常， 延期]
+13. 交货期 supply_time(fk_Contract)
+14. 供货商等级 manufacturer_level(fk_Supplier)
+15. 物料单位 material_unit(fk_Supplier)
+16. 物料备注 material_remark(fk_Supplier)
+17. 物料组 material_group(fk_Supplier)
 
 # 5. 生产部production_department
 ## 5.1 半成品生产Semi_production
@@ -214,7 +219,7 @@
 7. 生产订单号 order_number
 8. 生产订单名称 order_name
 9. 订单下发时间 order_purchase_time
-10. 订单状态 order_status
+10. 订单状态 order_status [正常，预警，延期]
 11. 需求数量 demand_quantity
 12. 已完成数量 completed_quantity
 13. 计划完成时间 plan_completion_time
@@ -223,6 +228,7 @@
 16. 测试开始时间 test_starttime
 17. 测试结束时间 test_endtime
 18. 订单备注 order_remark
+19. 原材料库存量 raw_material_quantity(fk_Raw_material)
 
 ## 5.1 成品生产Finished_production
 1. 需求成品装置编号finished_product_number(fk_Develop_product)
@@ -251,11 +257,11 @@
 
 #6.采购部 purchase_department
 ##6.1供应商物料表 Supplier
-1. 采购负责人purchase_owner(fk_Employee)
+1. 供应商接口人purchase_owner(fk_Employee)
 2. 供应商manufacturer
 3. 供应商等级 manufacturer_level
-4. 物料编号material_number
-5. 物料名称material_name
+4. 供应商物料编号  material_number
+5. 供应商物料名称material_name
 6. 物料组material_group
 7. 物料类型 material_type
 8. 付款方式payment_method
@@ -264,6 +270,14 @@
 11. 物料单位material_unit
 12. 供货周期supply_cycle
 13. 采购价格purchase_price
+14. 供应产品范围 supply_content
+15. 可供产品总量 supply_total_amount
+16. 供应商联系人 supplier_contact
+17. 供应商联系人手机号 supplier_cellphone
+18. 供应商联系人座机号 supplier_phone
+19. 供应商联系人邮箱 supplier_email
+20. 供应商编号 supplier_number
+22. 供应商备注 supplier_remark
 
 
 ##6.2 成品物料表 Finished_material
@@ -315,7 +329,18 @@
 
 
 #7 厂内测试部test_department
-## 7.1 测试表Test_factory
+## 7.1 研发测试表Test_develop
+1. 测试编号test_number
+2. 测试名称test_name
+3. 测试人员(fk_Employee)
+4. 测试报告test_report
+5. 测试内容test_content
+6. 测试开始时间test_starttime
+7. 测试结束时间test_endtime
+8. 测试结论test_conclusion
+9. 测试状态test_status [正常，预警，延期，暂停，取消]
+
+## 7.2 项目测试表Test_factory
 1. 项目编号project_number(fk_Contract)
 2. 项目名称project_name(fk_Contract)
 3. 测试人员(fk_Employee)
@@ -335,7 +360,8 @@
 5. 质检结束时间quality_endtime
 6. 检验结论quality_conclusion
 7. 产品合格证product_certification
-8. 项目状态project_status
+8. 项目状态project_status [进行中，一次质检未过，二次质检未过，质检通过，返回上层整改]
+9. 质检报告quality_report
 
 #9 发货部delivery_department
 ## 9.1 项目发货表 Project_delivery
@@ -349,16 +375,17 @@
 7. 发货文档类 delivery_document
 8. 发货负责人 delivery_owner(fk_Employee)
 9. 收货人 delivery_receiver
-10. 收获地址 receivering_address
+10. 收货地址 receivering_address
 11. 收货人联系方式 receiver_contact_information
 12. 承运公司 carieer_company
 13. 发货单号 invoice_number
 14. 发货日期 delivery_time
+15. 实际发货数量 actual_delivery_quantity
 
 
 
-# 10. 工程部engineering_department
-## 10.1 工程表Engineer_project
+# 10. 工程部 engineering_department
+## 10.1 工程表 Engineer_project
 1. 项目编号project_number(fk_Contract)
 2. 项目名称project_name(fk_Contract)
 3. 项目所属区域project_area(fk_Contract)
@@ -375,6 +402,7 @@
 14. 用户联系方式  customer_contact
 15. 项目实施负责人implement_owner(fk_Employee)
 16. 项目状态project_status
+
 
 #11 技术支持部support_department
 # 11.1 技术支持表Project_support
