@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'design_department.apps.DesignDepartmentConfig',
+    'delivery_department',
     'develop_department',
     'engineering_department',
     'human_res_department.apps.HumanResDepartmentConfig',
