@@ -48,12 +48,12 @@ class Employee(models.Model):
         on_delete=models.CASCADE,
         related_name="user_fk",
         verbose_name="员工姓名")
-    employee_age = models.IntegerField('员工年龄')
+    employee_age = models.PositiveSmallIntegerField('员工年龄')
     birthday = models.TimeField(verbose_name='出生日期')
     enter_company_time = models.DateField('入职时间')
-    employee_department = models.PositiveSmallIntegerField('所属部门', choices=department_choices)
+    employee_department = models.ForeignKey('Department', on_delete=models.CASCADE)
     staff_seniority = models.PositiveSmallIntegerField('工龄')
-    employee_position = models.PositiveSmallIntegerField('所属职位', choices=position_choices)
+    employee_position = models.ForeignKey('Position', on_delete=models.CASCADE)
 
     def __str__(self):
         return '人力资源部'
@@ -61,3 +61,26 @@ class Employee(models.Model):
     class Meta:
         verbose_name = '人力资源部'
         verbose_name_plural = '人力资源部'
+
+
+class Department(models.Model):
+    department_name = models.CharField('部门名称', max_length=40)
+
+    def __str__(self):
+        return "部门表"
+
+    class Meta:
+        verbose_name = "部门表"
+        verbose_name_plural = "部门表"
+
+
+class Position(models.Model):
+    position_name = models.CharField('职位名称', max_length=40)
+    position_remark = models.CharField('职位说明', max_length=80)
+
+    def __str__(self):
+        return "职位表"
+
+    class Meta:
+        verbose_name = "职位表"
+        verbose_name_plural = "职位表"

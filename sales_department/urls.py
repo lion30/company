@@ -14,8 +14,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url
-from .views import SalesIndex
+from . import views
 
 urlpatterns = [
-    url(r'^sales_index/', SalesIndex.as_view())
+    url(r'^sales/', views.salesIndex.as_view()),
+    url(r'^cluecreate/', views.salesClueCreate.as_view()),
+    url(r'^cluehistory/', views.salesClueHistory.as_view()),
+    url(r'^cluemanagement/', views.salesClueManagement.as_view()),
+    url(r'^clueupdate/', views.salesClueUpdate.as_view()),
+    url(r'^salesclue/', views.salesClue.as_view()),
+    url(r'^contractmanagement/', views.salesContractManagement.as_view()),
+    url(r'^contractupdate/', views.salesContractUpdate.as_view()),
+    url(r'^salescontract/', views.salesContract.as_view()),
+    url(r'^technicalagreement/', views.technicalAgreement.as_view()),
+    url(r'^technicalagreementmanagement/', views.technicalAgreementManagement.as_view()),
 ]

@@ -88,7 +88,7 @@ class Store(models.Model):
     material_name = models.CharField('物料名称', max_length=40, unique=True)
     material_unit = models.PositiveSmallIntegerField('物料单位', choices=material_unit_choice)
     material_group = models.PositiveSmallIntegerField('物料组', choices=material_group_choice,)
-    material_type = models.SmallIntegerField('物料类型', choices=('自产', '外购'))
+    material_type = models.SmallIntegerField('物料类型', choices=(('o','自产'),('p','外购')))
     manufacturer = models.CharField('供应商', max_length=200)
     material_remarks_store = models.CharField('物料备注', max_length=100)
     inventory_quantity = models.PositiveIntegerField('库存数量')
