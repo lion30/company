@@ -19,19 +19,28 @@
 1. 线索编号 clue_number
 2. 线索名称 clue_name
 3. 线索来源 clue_source
-4. 所处行业 belong_industry
-5. 线索所在区域clue_area
-6. 线索所处阶段 at_stage
-7. 下一步工作 next_plan
+4. 所处行业 belong_industry ["发电厂","电网","工业","轨道交通","石油化工"，"城市楼宇","其他"]
+5. 线索所在区域clue_area ["东北区"，"西北区","华北区","华南区"，"华中区","华东区"，"新疆大区"]
+6. 线索所处阶段 at_stage ["寻求机会"，"确定用户意向","招投标"]
+7. 下一步工作 next_plan  
 8. 项目预估合同额 estimate_contract
 9. 项目情况简述 intro_situation
 10. 线索建立时间 estabish_time
 11. 线索最后更新时间 last_update_time
 12. 线索建立人 establish_person(fk_Employee)
-13. 线索状态 clue_status
-14. 用户联系人 customer_name
-15. 用户联系方式 customer_contact
-16. 用户职务 customer_post
+13. 线索状态 clue_status ["进行中","暂停","丢失"]
+14. 用户单位 customer_company
+15. 线索主要联系人 main_customer_name
+16. 主要联系人联系方式 main_customer_contact
+17. 主要联系人职务 main_customer_post
+18. 用户联系人 customer_name
+19. 用户联系方式 customer_contact
+20. 用户职务 customer_post
+21. 线索备注 clue_remark
+22. 主要竞争对手1 competitor_1
+23. 主要竞争对手2 competitor_2
+24. 主要竞争对手3 competitor_3
+25. 线索成功率 success_rate [无把握，优于竞争对手，弱于竞争对手，基本确定]
 
 ##1.2 合同表 Contract
 1. 合同编号 project_number
@@ -44,17 +53,20 @@
 8. 合同所在区域project_area
 9. 签订人员 sales_person (fk_Employee)
 10. 批准人员 approval_person(fk_Employee)
-11. 项目状态 project_status[已返回，未返回]
-12. 合同签订时间 sign_time
-13. 合同文件 contract_file
-14. 供货时间 supply_time
-15. 项目线索 contract_clue(fk_Contract_clue)
-16. 用户商务负责人  business_leader
-17. 商务负责人联系方式 business_leader_contact
-18. 用户技术负责人 technical_leader
-19. 用户技术负责人联系方式 technical_leader_contact
-18. 回款状态 contract_receipt
-19. 合同备注 contract_remark
+11. 项目状态 project_stage[设计阶段，生产采购阶段，
+厂内测试阶段，出厂验收阶段，现场调试阶段，售后服务阶段，项目暂停]
+12. 项目状态 project_status[正常，设计阶段延误，生产采购阶段延误，厂内测试阶段延误，
+出厂验收阶段延误，已发货，已闭环]
+13. 合同签订时间 sign_time
+14. 合同文件 contract_file
+15. 供货时间 supply_time
+16. 项目线索 contract_clue(fk_Contract_clue)
+17. 用户商务负责人  business_leader
+18. 商务负责人联系方式 business_leader_contact
+19. 用户技术负责人 technical_leader
+20. 用户技术负责人联系方式 technical_leader_contact
+21. 回款状态 contract_receipt
+22. 合同备注 contract_remark
 
 ## 1.3 技术协议表 Technical_agreement
 1. 合同编号 project_number(fk_Contract)

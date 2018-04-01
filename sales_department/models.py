@@ -8,31 +8,27 @@ class Contractclue(models.Model):
     project_name = models.CharField('项目名称', max_length=200, unique=True)
     clue_source = models.CharField('项目来源', max_length=200)
     belong_industry = models.SmallIntegerField('所属行业', choices=(
-        (0, '火电'),
-        (1, '水电'),
-        (2, '电网'),
-        (3, '核电'),
-        (4, '化工'),
-        (5, '轨道交通')))
+        (0, '发电厂'),
+        (1, '电网'),
+        (2, '工业'),
+        (3, '轨道交通'),
+        (4, '石油化工'),
+        (5, '城市楼宇'),
+        (6, '其他')))
     project_area = models.SmallIntegerField(verbose_name='项目区域',
                                             choices=(
                                                 (0, '东北区'),
-                                                (1, '华北区'),
-                                                (2, '华中区'),
+                                                (1, '西北区'),
+                                                (2, '华北区'),
                                                 (3, '华南区'),
-                                                (4, '新疆'),
-                                                (5, '西北区'))
+                                                (4, '华中区'),
+                                                (5, '华东区'),
+                                                (6, '新疆大区'))
                                             )
     at_stage = models.SmallIntegerField('所处阶段', choices=(
-        (0, '市场前期'),
-        (1, '售前阶段'),
-        (2, '设计阶段'),
-        (3, '生产采购阶段'),
-        (4, '测试阶段'),
-        (5, '出厂阶段'),
-        (6, '现场调试阶段'),
-        (7, '已投运'),
-        (8, '暂停阶段')))
+        (0, '寻求机会'),
+        (1, '确定用户意向'),
+        (2, '招投标')))
     next_plan = models.CharField('下一步工作', max_length=400)
     estimate_contract = models.IntegerField('项目预估合同额')
     intro_situation = models.CharField('项目情况简述', max_length=400)
