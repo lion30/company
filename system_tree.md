@@ -20,9 +20,9 @@
 2. 线索名称 clue_name
 3. 线索来源 clue_source
 4. 所处行业 belong_industry ["发电厂","电网","工业","轨道交通","石油化工"，"城市楼宇","其他"]
-5. 线索所在区域clue_area ["东北区"，"西北区","华北区","华南区"，"华中区","华东区"，"新疆大区"]
+5. 线索所在区域clue_area ["东北区"，"西北区","华北区","华南区"，"华中区","华东区"，"新疆大区",国际]
 6. 线索所处阶段 at_stage ["寻求机会"，"确定用户意向","招投标"]
-7. 下一步工作 next_plan  
+7. 下一步工作 next_plan
 8. 项目预估合同额 estimate_contract
 9. 项目情况简述 intro_situation
 10. 线索建立时间 estabish_time
@@ -47,43 +47,47 @@
 2. 合同名称 project_name
 3. 合同金额 contract_amount
 4. 合同付款方式 contract_payment
-5. 订货单位 customer_name
-6. 用户等级 customer_level
+5. 订货单位 customer_company
+6. 用户等级 customer_level [重要用户,潜力用户,一般用户,新用户]
 7. 所属行业 belong_industry
 8. 合同所在区域project_area
 9. 签订人员 sales_person (fk_Employee)
 10. 批准人员 approval_person(fk_Employee)
-11. 项目状态 project_stage[设计阶段，生产采购阶段，
+11. 项目所处阶段 project_stage[设计阶段，生产采购阶段，
 厂内测试阶段，出厂验收阶段，现场调试阶段，售后服务阶段，项目暂停]
 12. 项目状态 project_status[正常，设计阶段延误，生产采购阶段延误，厂内测试阶段延误，
 出厂验收阶段延误，已发货，已闭环]
 13. 合同签订时间 sign_time
 14. 合同文件 contract_file
 15. 供货时间 supply_time
-16. 项目线索 contract_clue(fk_Contract_clue)
-17. 用户商务负责人  business_leader
-18. 商务负责人联系方式 business_leader_contact
-19. 用户技术负责人 technical_leader
-20. 用户技术负责人联系方式 technical_leader_contact
-21. 回款状态 contract_receipt
-22. 合同备注 contract_remark
+16. 是否关联销售线索 is_contract_clue
+17. 项目线索 contract_clue(fk_Contract_clue)
+18. 用户商务负责人  business_leader
+19. 用户商务负责人职务 business_post
+20. 商务负责人联系方式 business_leader_contact
+21. 用户技术负责人 technical_leader
+22. 用户技术负责人职务 technical_leader_post
+23. 用户技术负责人联系方式 technical_leader_contact
+24. 回款状态 contract_receipt [未回款，部分回款，已回款，延期未回款]
+25. 合同备注 contract_remark
+
 
 ## 1.3 技术协议表 Technical_agreement
 1. 合同编号 project_number(fk_Contract)
 2. 合同名称 project_name(fk_Contract)
 3. 合同签订人员 sales_person(fk_Contract)
-4. 售前负责人 presale_person(fk_Presale)
+4. 售前负责人 presale_person(fk_User)
 5. 用户技术负责人 customer_owner
-6. 用户技术负责人联系方式 coutomer_contact
+6. 用户技术负责人联系方式 customer_contact
 6. 接收任务时间 receive_request_time
 7. 技术协议签订时间 technical_agreement_signtime
 8. 技术协议 technical_agreement_doc
-9. 项目进度 project_process
-10. 项目状态 project_status
-11. 当前进度负责人 www
-11. 收货人 delivery_receiver
-12. 收获地址 receivering_address
-13. 收货人联系方式 receiver_contact_information
+9. 项目进度 project_process [正常，延误，暂停]
+10. 项目状态 project_status [已签订， 已确定技术细节，未正式签订， 未签订]
+11. 当前进度负责人 person_in_charge(fk_User)
+12. 收货人 delivery_receiver
+13. 收获地址 receivering_address
+14. 收货人联系方式 receiver_contact
 
 #2. 售前部presales_department
 ##3.1 售前项目表 Presale
