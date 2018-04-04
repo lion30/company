@@ -84,22 +84,16 @@
                     </tr>
                 </thead>
                 <tbody>
+                  {% for every_clue in clue_list %}
                     <tr>
-                        <td>KSCL2018LN1023 </td>
-                        <td>辽宁希望科技集团项目管理系统 </td>
-                        <td>前期跟踪 </td>
-                        <td>与技术部王中方做技术交流 </td>
-                        <td>2018-1-20 15:20:45</td>
-                        <td class="info"><a href="sales_department/sales_clue.html"><strong>更多</strong></a><strong> </strong></td>
+                        <td>{{ every_clue.clue_number}}</td>
+                        <td>{{ every_clue.clue_name }}</td>
+                        <td>{{ every_clue.clue_status }}</td>
+                        <td>{{ every_clue.next_plan}}</td>
+                        <td>{{ every_clue.last_update_time }}</td>
+                        <td class="info"><a href="/sales/salesclue/{{ every_clue.id }}"><strong>更多</strong></a><strong> </strong></td>
                     </tr>
-                    <tr>
-                        <td>KSCL2018XJ0124 </td>
-                        <td>新疆底色有限公司CRM系统 </td>
-                        <td>得到用户认同 </td>
-                        <td>Cell 4</td>
-                        <td>2018-1-20 14:10:20</td>
-                        <td class="info"><strong>更多</strong> </td>
-                    </tr>
+                  {% endfor %}
                 </tbody>
             </table>
         </div>

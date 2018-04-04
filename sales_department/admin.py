@@ -36,10 +36,10 @@ class ContractAdmin(admin.ModelAdmin):
     )
     actions = ['make_picked']
     fieldsets = (
-        ("基本", {"classes": ("", ), "fields": ("project_number", "project_name", "contract_amount", "contract_payment", "customer_company", "customer_level", "belong_industry", "project_area", "sales_person", "approval_person", "project_stage", "project_status", "contract_file", )}),
+        ("基本", {"classes": ("", ), "fields": ("project_number", "project_name", "contract_amount", "contract_payment", "customer_company", "customer_level", "belong_industry", "project_area", "sales_person", "approval_person", "project_stage", "project_status", "contract_file", "supply_time", "sign_time")}),
         ("高级", {"classes": ("", ), "fields": ("is_contract_clue", "contract_clue", "business_leader", "business_post", "business_leader_contact", "technical_leader", "technical_leader_post", "technical_leader_contact", "contract_receipt", "contract_remark",)})
         )
-    readonly_fields = ("supply_time", "sign_time")
+    # readonly_fields = ("supply_time", "sign_time")
 
 
 admin.site.register(Contract, ContractAdmin)
@@ -55,10 +55,10 @@ class TechnicalAgreementAdmin(admin.ModelAdmin):
     actions = ['make_picked']
 
     fieldsets = (
-        ("基本", {"classes": ("", ), "fields": ("project_info", "presale_info", "customer_owner", "technical_agreement_doc", "project_process", "project_status",)}),
+        ("基本", {"classes": ("", ), "fields": ("project_info", "presale_info", "customer_owner", "technical_agreement_doc", "project_process", "project_status", "receive_request_time", "technical_agreement_signtime")}),
         ("高级", {"classes": ("", ), "fields": ("delivery_receiver", "receivering_address", "receiver_contact",)})
         )
-    readonly_fields = ("receive_request_time", "technical_agreement_signtime",)
+    # readonly_fields = ("receive_request_time", "technical_agreement_signtime",)
 
 
 admin.site.register(TechnicalAgreement, TechnicalAgreementAdmin)

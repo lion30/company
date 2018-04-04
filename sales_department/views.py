@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import View, DetailView
-from .models import Contractclue
+from .models import Contractclue, Contract, TechnicalAgreement
 
 
 class salesIndex(View):
@@ -9,8 +9,9 @@ class salesIndex(View):
     #     self.contract_clue = Contractclue.objects.all()
 
     def get(self, request):
-        contract_clue = Contractclue.objects.all()
-        return render(request, self.template_name, {'contract_clues': contract_clue})
+        # contract_clue = Contractclue.objects.all()
+        clue_list = Contractclue.objects.order_by("last_update_time")[:10]
+        return render(request, self.template_name, {'clue_list': clue_list})
 
 
 class salesClueCreate(View):
@@ -48,8 +49,11 @@ class salesClueManagement(View):
 class salesClue(View):
     template_name = 'sales_clue.html'
 
-    def get(self, request):
-        return render(request, self.template_name)
+    def get(self, request, clue_id):
+        print(clue_id)
+        clue_id = int(clue_id)
+        contract_clue = Contractclue.objects.filter(id=clue_id)
+        return render(request, self.template_name, {"contract_clue": contract_clue})
 
 
 class salesContractManagement(View):

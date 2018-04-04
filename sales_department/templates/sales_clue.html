@@ -70,10 +70,11 @@
     </nav>
     </div>
     <div class="container">
+        {% for every_clue in contract_clue%}
         <div class="table-responsive">
             <table class="table table-striped table-bordered table-hover">
-                <caption class="lead text-primary bg-primary" style="background-color:rgb(215,232,247);">线索-KSCL2018LN1023 <a class="btn btn-default" role="button" href="/sales/clueupdate">更新线索 </a>
-                <a class="btn btn-default" role="button" href="/sales/cluehistory" style="margin:0px 240px;padding:8px 16px;width:118px;">线索历史记录 </a></caption>
+                <caption class="lead text-primary bg-primary" style="background-color:rgb(215,232,247);">线索-{{every_clue.clue_number}}<a class="btn btn-default" role="button" href="/sales/clueupdate">更新线索 </a>
+                <a class="btn btn-default" role="button" href="{{ r'cluehistory'}}" style="margin:0px 240px;padding:8px 16px;width:118px;">线索历史记录 </a></caption>
                 <thead>
                     <tr class="success">
                         <th>线索名称 </th>
@@ -85,11 +86,11 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Cell 1</td>
-                        <td>Cell 2</td>
-                        <td>Cell 2</td>
-                        <td>Cell 2</td>
-                        <td>Cell 2</td>
+                        <td>{{ every_clue.clue_name}}</td>
+                        <td>{{ every_clue.clue_source}}</td>
+                        <td>{{ every_clue.belong_industry }}</td>
+                        <td>{{ every_clue.clue_area }}</td>
+                        <td>{{ every_clue.at_stage }}</td>
                     </tr>
                 </tbody>
             </table>
@@ -107,11 +108,11 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Cell 1</td>
-                        <td>Cell 2</td>
-                        <td>Cell 2</td>
-                        <td>Cell 2</td>
-                        <td>Cell 2</td>
+                        <td>{{ every_clue.next_plan }}</td>
+                        <td>{{ every_clue.estimate_contract }}</td>
+                        <td>{{ every_clue.intro_situation }}</td>
+                        <td>{{ every_clue.establish_time }}</td>
+                        <td>{{ every_clue.last_update_time }}</td>
                     </tr>
                 </tbody>
             </table>
@@ -122,19 +123,20 @@
                     <tr class="success">
                         <th>线索建立人 </th>
                         <th>线索状态 </th>
-                        <th>用户联系人 </th>
-                        <th>用户联系方式 </th>
-                        <th>用户职务 </th>
+                        <th>主要用户联系人 </th>
+                        <th>主要用户联系方式 </th>
+                        <th>主要用户职务 </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Cell 1</td>
-                        <td>Cell 2</td>
-                        <td>Cell 2</td>
-                        <td>Cell 2</td>
-                        <td>Cell 2</td>
+                        <td>{{ every_clue.establish_person }}</td>
+                        <td>{{ every_clue.clue_status }}</td>
+                        <td>{{ every_clue.main_customer_name }}</td>
+                        <td>{{ every_clue.main_customer_contact }}</td>
+                        <td>{{ every_clue.main_customer_post }}</td>
                     </tr>
+          {% endfor %}
                 </tbody>
             </table>
         </div>

@@ -70,6 +70,7 @@ class Contractclue(models.Model):
     class Meta:
         verbose_name = "销售线索表"
         verbose_name_plural = "销售线索表"
+        ordering = ["last_update_time"]
 
 
 class Contract(models.Model):
@@ -112,7 +113,7 @@ class Contract(models.Model):
         (0, '有关联销售线索'),
         (1, '无关联销售线索'),
     ))
-    contract_clue = models.ForeignKey('Contractclue', verbose_name='线索编号', on_delete=models.CASCADE, related_name='contract_clue_number')
+    contract_clue = models.ForeignKey('Contractclue', verbose_name='线索编号', on_delete=models.CASCADE, related_name='contract_clue_number', blank=True)
     business_leader = models.CharField('商务负责人', max_length=20)
     business_post = models.CharField('商务负责人职务', max_length=40)
     business_leader_contact = models.CharField('商务负责人联系方式', max_length=40)
